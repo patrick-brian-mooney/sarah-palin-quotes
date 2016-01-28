@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import glob, random, re, cgi, html, csv, os
+import glob, random, re, cgi, csv, os
 from sentence_generator import *            # https://github.com/patrick-brian-mooney/markov-sentence-generator
 
 def get_speech_info(quoteloc):
@@ -10,7 +10,7 @@ def get_speech_info(quoteloc):
     with open('speeches/sources.csv') as f:
         header = f.readline()               # Yeah, ignore that line.
         reader=csv.reader(f)
-        the_table = [].copy()
+        the_table = [][:]
         for row in reader:
             if os.path.basename(quoteloc) == row[0]:
                 desc = row[1]
@@ -45,7 +45,7 @@ print("""Content-Type: text/html; charset=utf-8
 <meta name="description" content="Can Sarah Palin pass a crowdsourced Turing test?" />
 <meta name="rating" content="general" />
 <meta name="revisit-after" content="3 days" />
-<meta name="date" content="2016-01-28T04:17:32-0800" />
+<meta name="date" content="2016-01-28T04:34:29-0800" />
 <meta property="fb:admins" content="100006098197123" />
 <meta property="og:title" content="Sarah Palin Quote, or Random Algorithmic Gibberish?" />
 <meta property="og:type" content="website" />
@@ -123,7 +123,7 @@ else: print('<input type="radio" name="who" checked="checked" value="algorithm">
 print("""<input type="hidden" name="quote" value="%s">
 <input type="hidden" name="quoteloc" value="%s">
 <input type="submit" value="I know!" class="button-primary">
-</form>""" % (html.escape(the_quote), html.escape(quote_loc)))
+</form>""" % (cgi.escape(the_quote), cgi.escape(quote_loc)))
 print("""<footer>
 <p>More information about this quiz is <a href="technical.html">here</a>. The code generating the quiz and the speech texts that the quiz is based on are available <a rel="me" href="https://github.com/patrick-brian-mooney/sarah-palin-quotes">here</a>. If you know of a reliable transcript of a Sarah Palin speech that this site should use, please <a rel="me" href="/~patrick/contact.html">get in touch with me</a>.</p>
 <p class="status vevent vcard"><a rel="me author" class="url location" href="#">This web page</a> is copyright © 2016 by <span class="fn">Patrick Mooney</span>. <abbr class="summary description" title="Description of Patrick Mooney's technical projects last updated">Last update to this HTML file</abbr>: <abbr class="dtstart" title="2016-01-27">27 January 2016</abbr>.</p>
