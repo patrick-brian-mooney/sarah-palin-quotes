@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import glob, random, re, cgi, csv, os
@@ -45,7 +45,7 @@ print("""Content-Type: text/html; charset=utf-8
 <meta name="description" content="Can Sarah Palin pass a crowdsourced Turing test?" />
 <meta name="rating" content="general" />
 <meta name="revisit-after" content="3 days" />
-<meta name="date" content="2016-01-28T04:34:29-0800" />
+<meta name="date" content="2016-01-28T12:25:35-0800" />
 <meta property="fb:admins" content="100006098197123" />
 <meta property="og:title" content="Sarah Palin Quote, or Random Algorithmic Gibberish?" />
 <meta property="og:type" content="website" />
@@ -96,10 +96,8 @@ num_sentences = random.randint(3,6)
 
 if random.random() >= 0.5:      # Generate some new Sarah Palin–style gibberish
     the_list = []
-    for which_file in glob.glob('speeches/*txt'):
-        the_list = the_list + word_list(which_file)
-    starts, the_mapping = buildMapping(the_list, markov_length=2)
-    the_quote = gen_text(the_mapping, starts, markov_length=2, sentences_desired=5, paragraph_break_probability=0)
+    markov_length, the_starts, the_mapping = read_chains('speeches/3chains.dat')
+    the_quote = gen_text(the_mapping, the_starts, markov_length=markov_length, sentences_desired=num_sentences, paragraph_break_probability=0)
     quote_loc = 'None'
 else:                           # Quote some gibberish that Sarah Palin herself generated.
     quote_loc = random.choice(glob.glob('speeches/*txt')) 
