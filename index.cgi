@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+print("Content-Type: text/html; charset=utf-8\n\n")
+
+import sys
+sys.stderr = sys.stdout
+
 import glob, random, re, cgi, csv, os
 from sentence_generator import *            # https://github.com/patrick-brian-mooney/markov-sentence-generator
 from speech_utils import *
 
 debugging = False
 
-print("""Content-Type: text/html; charset=utf-8
 
-<!doctype html>
+print("""<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <link rel="stylesheet" type="text/css" href="http://patrickbrianmooney.nfshost.com/~patrick/css/skeleton-normalize.css" />
@@ -26,13 +30,13 @@ print("""Content-Type: text/html; charset=utf-8
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="icon" type="image/x-icon" href="/~patrick/icons/favicon.ico" />
 <title>Sarah Palin Quote, or Random Algorithmic Gibberish?</title>
-<meta name="generator" content="Bluefish 2.2.5" />
+<meta name="generator" content="Bluefish 2.2.6" />
 <meta name="author" content="Patrick Mooney" />
 <meta name="dcterms.rights" content="Copyright © 2016 Patrick Mooney" />
 <meta name="description" content="Can Sarah Palin pass a crowdsourced Turing test?" />
 <meta name="rating" content="general" />
 <meta name="revisit-after" content="3 days" />
-<meta name="date" content="2016-01-29T16:26:12-0800" />
+<meta name="date" content="2016-02-01T19:11:31-0800" />
 <meta property="fb:admins" content="100006098197123" />
 <meta property="og:title" content="Sarah Palin Quote, or Random Algorithmic Gibberish?" />
 <meta property="og:type" content="website" />
@@ -107,7 +111,7 @@ if random.random() >= 0.5:      # Generate some new Sarah Palin–style gibberis
     the_quote = gen_text(the_mapping, the_starts, markov_length=markov_length, sentences_desired=num_sentences, paragraph_break_probability=0)
     quote_loc = 'None'
 else:                           # Quote some gibberish that Sarah Palin herself generated.
-    quote_loc = random.choice(glob.glob('speeches/*txt')) 
+    quote_loc = random.choice(glob.glob('speeches/*txt'))
     with open(quote_loc) as the_file:
         the_lines = the_file.readlines()
         all_sentences = re.split('(?<=[.!?]) +', ' '.join(the_lines))
