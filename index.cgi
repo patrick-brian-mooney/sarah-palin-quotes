@@ -30,13 +30,13 @@ print("""<!doctype html>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="icon" type="image/x-icon" href="/~patrick/icons/favicon.ico" />
 <title>Sarah Palin Quote, or Random Algorithmic Gibberish?</title>
-<meta name="generator" content="Bluefish 2.2.6" />
+<meta name="generator" content="Bluefish 2.2.5" />
 <meta name="author" content="Patrick Mooney" />
 <meta name="dcterms.rights" content="Copyright © 2016 Patrick Mooney" />
 <meta name="description" content="Can Sarah Palin pass a crowdsourced Turing test?" />
 <meta name="rating" content="general" />
 <meta name="revisit-after" content="3 days" />
-<meta name="date" content="2016-02-01T19:11:31-0800" />
+<meta name="date" content="2016-02-03T01:19:33-0800" />
 <meta property="fb:admins" content="100006098197123" />
 <meta property="og:title" content="Sarah Palin Quote, or Random Algorithmic Gibberish?" />
 <meta property="og:type" content="website" />
@@ -75,11 +75,11 @@ form = cgi.FieldStorage()
 if 'quote' in form:     # Then we're evaluating a previous quiz, and should provide feedback.
     print("""<div class="u-pull-right two-thirds column"><p class="quote-bubble">%s</p></div>""" % form['quote'].value)
     if form['quoteloc'].value == 'None' and form['who'].value == 'algorithm':
-        print("""<h2>That's right.</h2>\n\n<p>This <strong>is</strong> gibberish, but it's not (exactly) the kind of gibberish that Sarah Palin spouts off when she makes speeches. Good eye!</p>""")
+        print("""<h2>That's right.</h2>\n\n<p>This <strong>is</strong> gibberish, but it's not (exactly) the kind of gibberish that Sarah Palin spouts off when she speaks. Good eye!</p>""")
         bump_count('algorithm_right')
     elif form['quoteloc'].value != 'None' and form['who'].value == 'sarah':
         desc, location = get_speech_info(form['quoteloc'].value)
-        print("""<h2>That's right.</h2>\n\n<p>Sarah Palin actually said this %s. You can read the text of this speech <a rel="nofollow" href="%s">here</a>.""" % (desc, location))
+        print("""<h2>That's right.</h2>\n\n<p>Sarah Palin <strong>actually said this</strong> %s. You can read the full text frmo which this quote is taken <a rel="nofollow" href="%s">here</a>.""" % (desc, location))
         bump_count('sarah_right')
     elif form['quoteloc'].value != 'None' and form['who'].value == 'algorithm':
         desc, location = get_speech_info(form['quoteloc'].value)
@@ -136,8 +136,8 @@ print("""<input type="hidden" name="quote" value="%s">
 </form>""" % (cgi.escape(the_quote), cgi.escape(quote_loc)))
 print("""
 <footer>
-<p>This quiz has a <a rel="me" href="privacy.html">privacy policy</a> that you can read if you want. More information about this quiz is <a href="technical.html">here</a>. The list of speeches used in this quiz is <a rel="me" href="speech-list.cgi">here</a>. The code generating the quiz and the speech texts that the quiz is based on are available <a rel="me" href="https://github.com/patrick-brian-mooney/sarah-palin-quotes">here</a>. If you know of a reliable transcript of a Sarah Palin speech that this site should use, please reach me <a rel="me" href="https://gnusocial.no/p">on GNUsocial</a> or <a rel="me" href="http://twitter.com/patrick_mooney">on Twitter</a> or <a rel="me" href="/~patrick/personal.html#other-web">elsewhere online</a>.</p>
-<p class="status vevent vcard">Short link to this quiz: <a rel="me" class="url" href="http://is.gd/sarah_palin_quiz">http://is.gd/sarah_palin_quiz</a>. <a rel="me author" class="url location" href="#">This web page</a> is copyright © 2016 by <span class="fn">Patrick Mooney</span>. <abbr class="summary description" title="'Sarah Palin Quote, or Random Algorithmic Gibberish?' last updated">Last update to this HTML file</abbr>: <abbr class="dtstart" title="2016-01-28">28 January 2016</abbr>.</p>
+<p>This quiz has a <a rel="me" href="privacy.html">privacy policy</a> that you can read if you want. The list of speeches used in this quiz is <a rel="me" href="speech-list.cgi">here</a>. Some technical information about this quiz is <a href="technical.html">here</a>. The code generating the quiz and the speech texts that the quiz is based on are available <a rel="me" href="https://github.com/patrick-brian-mooney/sarah-palin-quotes">here</a>. If you know of a reliable transcript of a Sarah Palin speech, interview, statement, or other relevant text that this site should use, please reach me <a rel="me" href="https://gnusocial.no/p">on GNUsocial</a> or <a rel="me" href="http://twitter.com/patrick_mooney">on Twitter</a> or <a rel="me" href="/~patrick/personal.html#other-web">elsewhere online</a>.</p>
+<p class="status vevent vcard">Short link to this quiz: <a rel="me" class="url" href="http://is.gd/sarah_palin_quiz">http://is.gd/sarah_palin_quiz</a>. <a rel="me author" class="url location" href="#">This web page</a> is copyright © 2016 by <span class="fn">Patrick Mooney</span>. <abbr class="summary description" title="'Sarah Palin Quote, or Random Algorithmic Gibberish?' last updated">Last update to this HTML file</abbr>: <abbr class="dtstart" title="2016-02-02">2 February 2016</abbr>.</p>
 </footer>
 </div></body>
 </html>""")
