@@ -21,7 +21,7 @@ def get_speech_info(quoteloc):
     return desc, location 
 
 def create_stats_file():
-    """Let's hope this only ever gets called the very first time stats get counted. Otherwise, it means we've lost count.
+    """Let's hope this only ever gets called the very first time stats get counted. Otherwise, it means we've lost count and are starting over.
     
     For the sake of being explicit:
           sarah_right means USER CORRECTLY IDENTIFIED A QUOTE AS COMING FROM SARAH PALIN
