@@ -30,7 +30,7 @@ print("""<!doctype html>
 <meta name="description" content="Can Sarah Palin pass a crowdsourced Turing test?" />
 <meta name="rating" content="general" />
 <meta name="revisit-after" content="3 days" />
-<meta name="date" content="2016-04-28T18:50:22-0700" />
+<meta name="date" content="2016-05-09T15:46:36-0700" />
 <meta property="fb:admins" content="100006098197123" />
 <meta property="og:title" content="Stats for Sarah Palin Quote, or Random Algorithmic Gibberish?" />
 <meta property="og:type" content="website" />
@@ -71,21 +71,29 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 
 tdata = get_stats_dictionary()
 
+times_taken = sum(tdata.values())
+
 print("""<p><a rel="me" href="index.cgi">This quiz</a> has been taken %d times; users have correctly identified the source of quotes %0.2f %% of the time. Here are the totals:</p> 
-""" % (sum(tdata.values()), 100 * ((tdata['sarah_right'] + tdata['algorithm_right']) / sum(tdata.values()))))
+""" % (times_taken, 100 * ((tdata['sarah_right'] + tdata['algorithm_right']) / times_taken)))
 
 print("""<div>
   <table>
     <tr><th>&nbsp;</th><th>&nbsp;</th><th colspan="2" scope="colgroup">User Guess</th></tr>
-    <tr><th>&nbsp;</th><th>&nbsp;</th><th scope="col">Sarah Palin</th><th scope="col">Algorithm</th></tr>
-    <tr><th rowspan="2" scope="rowgroup">Actual Source</th><th scope="row">Sarah Palin</th><td>%d</td><td>%d</td></tr>
-    <tr><th scope="row">Algorithm</th><td>%d</td><td>%d</td></tr>
+    <tr><th>&nbsp;</th><th>&nbsp;</th><th scope="col">Sarah Palin</th><th scope="col">Algorithm</th><th scope="col">Totals</th></tr>
+    <tr><th rowspan="2" scope="rowgroup">Actual Source</th><th scope="row">Sarah Palin</th><td>%d (%0.2f%%)</td><td>%d (%0.2f%%)</td><td><span class="line-header">%d (%0.2f%%)</span></td></tr>
+""" % (tdata['sarah_right'], 100 * (tdata['sarah_right'] / times_taken), tdata['algorithm_wrong'], 100 * (tdata['algorithm_wrong'] / times_taken), tdata['sarah_right'] + tdata['algorithm_wrong'], 100 * ((tdata['sarah_right'] + tdata['algorithm_wrong']) / times_taken)))
+
+print("""    <tr><th scope="row">Algorithm</th><td>%d (%0.2f%%)</td><td>%d (%0.2f%%)</td><td><span class="line-header">%d (%0.2f%%)</span></td></tr>
+""" % (tdata['sarah_wrong'], 100 * (tdata['sarah_wrong'] / times_taken), tdata['algorithm_right'], 100 * (tdata['algorithm_right'] / times_taken), tdata['sarah_wrong'] + tdata['algorithm_right'], 100 * ((tdata['sarah_wrong'] + tdata['algorithm_right']) / times_taken)))
+
+print("""    <tr><td>&nbsp;</td><th scope="row">Totals</th><td><span class="line-header">%d (%0.2f%%)</span></td><td><span class="line-header">%d (%0.2f%%)</span></td><td>&nbsp;</td></tr>
   </table>
-</div>""" % (tdata['sarah_right'], tdata['algorithm_wrong'], tdata['sarah_wrong'], tdata['algorithm_right']))
+</div>
+""" % (tdata['sarah_wrong'] + tdata['sarah_right'], 100 * ((tdata['sarah_wrong'] + tdata['sarah_right']) / times_taken), tdata['algorithm_wrong'] + tdata['algorithm_right'], 100 * ((tdata['algorithm_wrong'] + tdata['algorithm_right']) / times_taken)))
 
 print("""
 
-<p>You can see the raw data <a rel="me" href="stats/stats.csv">here</a>, if you'd like.</p>
+<p>You can download the raw data <a rel="me" href="stats/stats.csv">here</a>, if you'd like.</p>
 
 <p><a rel="me" href="index.cgi">Back to <q>Sarah Palin Quote, or Random Algorithmic Gibberish?</q></a></p>
 
