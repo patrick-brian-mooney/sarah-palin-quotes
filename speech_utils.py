@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""This is a utility module supporting the Sarah Palin Crowdsouced Turing Test. It's
+not meant to be run directly.
+
+More info here: Code is available here: < https://github.com/patrick-brian-mooney/sarah-palin-quotes >.
+"""
+
 
 import csv, os
 
@@ -18,15 +24,15 @@ def get_speech_info(quoteloc):
                 desc = row[1]
                 location = row[2]
                 break
-    return desc, location 
+    return desc, location
 
 def create_stats_file():
     """Let's hope this only ever gets called the very first time stats get counted. Otherwise, it means we've lost count and are starting over.
-    
+
     For the sake of being explicit:
           sarah_right means USER CORRECTLY IDENTIFIED A QUOTE AS COMING FROM SARAH PALIN
           sarah_wrong means USER SAID IT WAS FROM SARAH PALIN, BUT THAT WAS WRONG (e.g., wasn't able to identify a quote from the algorithm)
-    
+
     Same deal for algorithm_right and algorithm_wrong.
     """
     empty_counts = {
@@ -81,4 +87,7 @@ def bump_count(which_key):
     for which_key in the_stats:
         writer.writerow([which_key, the_stats[which_key]])
     stats_file.close()          # I take it we don't need to separately close the file descriptor.
-    
+
+if __name__ == "__main__":	# Avoid hanging the server when Google (etc.) crawl this page.
+    print('Content-type: text/html\n\n')                                # ... print HTTP headers, then documentation.
+    print("""<!doctype html><html><head><title>module speech_utils.py for the Sarah Palin Turing Test</title><link rel="profile" href="http://gmpg.org/xfn/11" /></head><body><h1>speech_utils.py for the Sarah Palin Turing Test</h1><pre>%s</pre></body></html>"""% __doc__)
