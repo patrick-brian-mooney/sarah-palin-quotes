@@ -7,7 +7,7 @@ import sys
 sys.stderr = sys.stdout
 
 import glob, random, re, cgi, csv, os
-from sentence_generator import *            # https://github.com/patrick-brian-mooney/markov-sentence-generator
+import sentence_generator as sg         # https://github.com/patrick-brian-mooney/markov-sentence-generator
 from speech_utils import *
 
 debugging = False
@@ -36,7 +36,7 @@ print("""<!doctype html>
 <meta name="description" content="Can Sarah Palin pass a crowdsourced Turing test?" />
 <meta name="rating" content="general" />
 <meta name="revisit-after" content="3 days" />
-<meta name="date" content="2016-04-28T19:00:51-0700" />
+<meta name="date" content="2017-04-21T16:47:32-0700" />
 <meta property="fb:admins" content="100006098197123" />
 <meta property="og:title" content="Sarah Palin Quote, or Random Algorithmic Gibberish?" />
 <meta property="og:type" content="website" />
@@ -118,8 +118,9 @@ num_sentences = random.randint(2,4)
 
 if random.random() >= 0.5:      # Generate some new Sarah Palin–style gibberish
     the_list = []
-    markov_length, the_starts, the_mapping = read_chains('speeches/3chains.dat')
-    the_quote = gen_text(the_mapping, the_starts, markov_length=markov_length, sentences_desired=num_sentences, paragraph_break_probability=0)
+    genny = sg.TextGenerator('SarahPalinBot')
+    genny.chains.read_chains('speeches/3chains.dat')
+    the_quote = genny.gen_text(sentences_desired=num_sentences, paragraph_break_probability=0)
     quote_loc = 'None'
 else:                           # Quote some gibberish that Sarah Palin herself generated.
     quote_loc = random.choice(glob.glob('speeches/*txt'))
