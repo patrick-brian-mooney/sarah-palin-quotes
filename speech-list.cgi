@@ -8,9 +8,7 @@ print("""Content-Type: text/html; charset=utf-8
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="http://patrickbrianmooney.nfshost.com/~patrick/css/skeleton-normalize.css" />
-<link rel="stylesheet" type="text/css" href="http://patrickbrianmooney.nfshost.com/~patrick/css/skeleton.css" />
-<link rel="stylesheet" type="text/css" href="http://patrickbrianmooney.nfshost.com/~patrick/css/content-skel.css" />
+<link rel="stylesheet" type="text/css" href="http://patrickbrianmooney.nfshost.com/~patrick/css/content.css" />
 <link rel="stylesheet" type="text/css" href="http://patrickbrianmooney.nfshost.com/~patrick/css/pullquotes.css" />
 <link rel="pgpkey" type="application/pgp-keys" href="/~patrick/505AB18E-public.asc" />
 <link rel="author" href="http://plus.google.com/109251121115002208129?rel=author" />
@@ -22,13 +20,13 @@ print("""Content-Type: text/html; charset=utf-8
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="icon" type="image/x-icon" href="/~patrick/icons/favicon.ico" />
 <title>List of Sources Used in the Sarah Palin Gibberish Quiz</title>
-<meta name="generator" content="Bluefish 2.2.5" />
+<meta name="generator" content="Bluefish 2.2.7" />
 <meta name="author" content="Patrick Mooney" />
 <meta name="dcterms.rights" content="Copyright © 2016 Patrick Mooney" />
 <meta name="description" content="Can Sarah Palin pass a crowdsourced Turing test?" />
 <meta name="rating" content="general" />
 <meta name="revisit-after" content="3 days" />
-<meta name="date" content="2016-01-28T14:57:15-0800" />
+<meta name="date" content="2017-12-07T17:44:52-0700" />
 <meta property="fb:admins" content="100006098197123" />
 <meta property="og:title" content="List of Sources Used in the Sarah Palin Gibberish Quiz" />
 <meta property="og:type" content="website" />
@@ -82,7 +80,7 @@ print("""</ul>
 
 <p>However, if you know of other <strong> reliable, accurately transcribed, not-trivial-in-length</strong> sources, please let me know <a rel="me" href="https://gnusocial.no/p">on GNUsocial</a> or <a rel="me" href="http://twitter.com/patrick_mooney">on Twitter</a> or <a rel="me" href="http://patrickbrianmooney.nfshost.com/~patrick/personal.html#other-web">elsewhere online</a>.</p>
 
-<p class="status vevent vcard"><a rel="me author" class="url location" href="#">This web page</a> is copyright © 2016 by <span class="fn">Patrick Mooney</span>. <abbr class="summary description" title="Description of Patrick Mooney's technical projects last updated">Last update to this HTML file</abbr>: <abbr class="dtstart" title="2016-01-28">28 January 2016</abbr>.</p>
+<footer class="status vevent vcard"><a rel="me author" class="url location" href="#">This web page</a> is copyright © 2016 by <a rel="me" class="fn url" href="/~patrick/">Patrick Mooney</span>. <span class="summary"><a class="url" href="#">This HTML file</a> was last updated</span> on <abbr class="dtstart" title="2017-12-04">the 231st anniversary of the dedication of Mission Santa Barbara</abbr> (<span class="description">last change: minor coding changes while giving the whole site a facelift</span>).</footer>
 </footer>
 </div></body>
 </html>""")
