@@ -11,7 +11,7 @@ from speech_utils import *
 print("""<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="http://patrickbrianmooney.nfshost.com/~patrick/css/content.css" />
+<link rel="stylesheet" type="text/css" href="https://patrickbrianmooney.nfshost.com/~patrick/css/content.css" />
 <link rel="pgpkey" type="application/pgp-keys" href="/~patrick/505AB18E-public.asc" />
 <link rel="author" href="http://plus.google.com/109251121115002208129?rel=author" />
 <link rel="sitemap" href="/sitemap.xml" />
@@ -22,13 +22,13 @@ print("""<!doctype html>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="icon" type="image/x-icon" href="/~patrick/icons/favicon.ico" />
 <title>Stats for Sarah Palin Quote, or Random Algorithmic Gibberish?</title>
-<meta name="generator" content="Bluefish 2.2.7" />
+<meta name="generator" content="Bluefish 2.2.11" />
 <meta name="author" content="Patrick Mooney" />
 <meta name="dcterms.rights" content="Copyright © 2016 Patrick Mooney" />
 <meta name="description" content="Can Sarah Palin pass a crowdsourced Turing test?" />
 <meta name="rating" content="general" />
 <meta name="revisit-after" content="3 days" />
-<meta name="date" content="2017-12-07T17:44:52-0700" />
+<meta name="date" content="2023-07-10T18:20:53-0500" />
 <meta property="fb:admins" content="100006098197123" />
 <meta property="og:title" content="Stats for Sarah Palin Quote, or Random Algorithmic Gibberish?" />
 <meta property="og:type" content="website" />
